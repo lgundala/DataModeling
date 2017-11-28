@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="PreXMLForm">
+	<xs:complexType>
+		<xs:choice minOccurs="0" maxOccurs="100">
+			<xs:element name="Party" type="PartyType"></xs:element>
+			<xs:element name="Project" type="ProjectType"></xs:element>
+			<xs:element name="ProjectStep" type="ProjectStepType"></xs:element>
+			<xs:element name="EquipmentItem" type="EquipmentItemType"></xs:element>
+			<xs:element name="EquipmentUsage" type="EquipmentUsageType"></xs:element>
+			<xs:element name="ProjectAssignment" type="ProjectAssignmentType"></xs:element>
+		</xs:choice>
+	</xs:complexType>
+</xs:element>
+
+	<xs:complexType name="PartyType">
+		<xs:attribute name="PartyID" type="xs:ID"/>
+		<xs:attribute name="PartyName" type="xs:string"/>
+		<xs:attribute name="PartyAddress" type="xs:string"/>
+		<xs:attribute name="PartyCity" type="xs:string"/>
+		<xs:attribute name="PartyState" type="xs:string"/>
+		<xs:attribute name="PartyPostalCode" type="xs:string"/>
+	</xs:complexType>
+
+	<xs:complexType name="ProjectType">
+		<xs:attribute name="ProjectID" type="xs:ID"/>
+		<xs:attribute name="ProjectName" type="xs:string" use="required"/>
+		<xs:attribute name="ProjectStartDate" type="xs:date"/>
+		<xs:attribute name="ProjectEndDate" type="xs:date"/>
+		<xs:attribute name="BuyingPartyID" type="xs:IDREF"/>
+		<xs:attribute name="SellingPartyID" type="xs:IDREF"/>
+	</xs:complexType>
+
+	<xs:complexType name="ProjectStepType">
+		<xs:attribute name="ProjectID" type="xs:IDREF"/>
+		<xs:attribute name="StepNo" type="xs:ID"/>
+		<xs:attribute name="StepDescription" type="xs:string"/>
+	</xs:complexType>
+
+	<xs:complexType name="EquipmentItemType">
+		<xs:attribute name="EquipItemID" type="xs:ID"/>
+		<xs:attribute name="EquipItemName" type="xs:string"/>
+		<xs:attribute name="EquipSerialNo" type="xs:string"/>
+	</xs:complexType>
+
+	<xs:complexType name="EquipmentUsageType">
+		<xs:attribute name="EquipItemUsageID" type="xs:ID"/>
+		<xs:attribute name="FromDate" type="xs:date"/>
+		<xs:attribute name="ToDate" type="xs:date"/>
+		<xs:attribute name="EquipItemID" type="xs:IDREF"/>
+		<xs:attribute name="StepNo" type="xs:IDREF"/>
+		<xs:attribute name="ProjectID" type="xs:IDREF"/>
+	</xs:complexType>
+
+	<xs:complexType name="ProjectAssignmentType">
+		<xs:attribute name="ProjAssignID" type="xs:ID"/>
+		<xs:attribute name="FromDate" type="xs:date" use="required"/>
+		<xs:attribute name="ToDate" type="xs:date"/>
+		<xs:attribute name="PartyID" type="xs:IDREF"/>
+		<xs:attribute name="StepNo" type="xs:IDREF"/>
+		<xs:attribute name="ProjectID" type="xs:IDREF"/>
+	</xs:complexType>
+</xs:schema>

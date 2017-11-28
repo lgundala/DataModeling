@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreXMLForm>
+	<Party PartyID="p1" PartyName="RobBuy" PartyAddress="S Gekeler Lane" PartyCity="Boise" 
+	PartyState="Idaho" PartyPostalCode="83706"/>
+
+	<Party PartyID="p2" PartyName="RobSell" PartyAddress="W University Drive" PartyCity="Boise" 
+	PartyState="Idaho" PartyPostalCode="83725"/>
+
+	<Project ProjectID="j1" ProjectName="Exam" ProjectStartDate="2015-12-15" ProjectEndDate="2015-12-17"
+	BuyingPartyID="p1" SellingPartyID="p2"/>
+
+	<ProjectStep ProjectID="j1" StepNo="s1" StepDescription="Writing the answer for xml instance"/>
+	
+	<EquipmentItem EquipItemID="e1" EquipItemName="notepad" EquipSerialNo="serial1"/>
+	
+	<EquipmentUsage EquipItemUsageID="u1" FromDate="2015-12-15" ToDate="2015-12-17" 
+	EquipItemID="e1" StepNo="s1" ProjectID="j1"/>
+	
+	<ProjectAssignment ProjAssignID="a1" FromDate="2015-12-15" ToDate="2015-12-17"
+	PartyID="p1" StepNo="s1" ProjectID="j1" />
+</PreXMLForm>
